@@ -1,0 +1,46 @@
+<p>add works!</p>
+<h2>Http client post method </h2>    
+<p *ngIf='datasaved' ngClass='success'>    
+    Record save successfully    
+    </p>    
+    <form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">    
+        <table>    
+            <tr>    
+                <td>ID:</td>    
+                <td> <input formControlName="id"> </td>    
+            </tr>    
+            <tr>    
+                <td>Team:</td>    
+                <td> <input formControlName="team"> </td>    
+            </tr>    
+            <tr>    
+                <td>HR-partner:</td>    
+                <td> <input formControlName="HRpartner"> </td>    
+            </tr>    
+            <tr>    
+                <td>Category:</td>    
+                <td> <input formControlName="category"> </td>    
+            </tr>    
+            <tr>    
+                <td colspan="2">      
+                    <button [disabled]="bookForm.invalid">Submit</button>    
+                </td>    
+            </tr>    
+        </table>    
+        
+    </form>    
+<h2>View</h2>    
+<table border="2px">    
+    <tr>    
+        <td>Id</td>    
+        <td>Team</td>    
+        <td>HR-partner</td>    
+        <td>category</td>    
+    </tr>    
+    <tr *ngFor='let bk of allbooks| async'>     
+    <td>{{bk.id}}</td>    
+    <td>{{bk.team}}</td>    
+    <td>{{bk.category}}</td>    
+    <td>{{bk.HRpartner}}</td>    
+</tr>    
+</table>   
